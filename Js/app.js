@@ -42,12 +42,24 @@ function Addtodo() {
     list.setAttribute("class","TodoItem")
     listBullet.setAttribute("type","radio")
     listItemdiv.appendChild(listBullet);
-    listItemdiv.appendChild(list)        
+    listItemdiv.appendChild(list) 
+    editImg = document.createElement("img")
+    editImg.setAttribute("src","./icons/edit.png")       
+    DeleteImg = document.createElement("img")     
+    DeleteImg.setAttribute("src","./icons/delete.png")    
+    listItemdiv.appendChild(editImg)   
+    listItemdiv.appendChild(DeleteImg)   
     id = Input.value
     id = id.replace(/\s+/g, '');
     list.setAttribute("for",id)
     listBullet.setAttribute("id",id)
-    // list.setAttribute("id",id)
-
+    editImg.setAttribute("onclick","editItem()")
+    DeleteImg.setAttribute("onclick","Imgdel()")
 }
 // console.log[Todos]
+function editItem() {
+    alert("Edit item");
+}
+function Imgdel() {
+    alert("Delete item");
+}
