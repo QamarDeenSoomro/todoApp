@@ -26,8 +26,9 @@ background: linear-gradient(to right, #78ffd6, #a8ff78); /* W3C, IE 10+/ Edge, F
   border: none;
   outline: none;
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    width: 85%;
+  width: 85%;
   height: 30px;
+  /* border-radius: 5px; */
 }
 .todoInput:focus,
 todoInput:valid {
@@ -49,6 +50,11 @@ todoInput:valid {
   background-color: steelblue;
   display: flex;
   align-items: center;
+  /* border-radius: 5px; */
+}
+.SubmitBtn>img{
+  height: 100%;
+  width: 100%;
 }
 .TodoItem{
   padding: 10px 1%;
@@ -69,4 +75,14 @@ justify-content: space-between;
 align-items: center;
 justify-content: space-between;
 box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+}
+@media only screen and (max-width: 840px) {
+  #main{
+    margin: 2% 10% 2% 10%;
+  }
+}
+@media only screen and (max-width: 400px) {
+  #main{
+    margin: 2% 5% 2% 5%;
+  }
 }
