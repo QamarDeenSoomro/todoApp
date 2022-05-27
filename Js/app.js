@@ -19,7 +19,7 @@ InputDiv.appendChild(Input)
 InputDiv.appendChild(SubmitBtn)
 SubmitBtn.setAttribute("class", "SubmitBtn")
 SubmitBtn.setAttribute("onclick", "Addtodo()")
-Todos = ["First todo", "Second"];
+// Todos = ["First todo", "Second"];
 var TdlistDiv = document.createElement("div")
 main.appendChild(TdlistDiv)
 TdlistDiv.setAttribute("class", "TodolistDiv")
@@ -29,46 +29,61 @@ TdlistDiv.setAttribute("class", "TodolistDiv")
 
 // var Todos = ["Todo 1", "Todo 2"];
 
-function Addtodo() {
-    // console.log(Todos);
-    // Todos.push(Input.value);
-    var listItemdiv = document.createElement("div")
-    TdlistDiv.appendChild(listItemdiv)
-    listItemdiv.setAttribute("class", "TodoListMain")
-    var list = document.createElement("label");
-    listText = document.createTextNode(Input.value)
-    listBullet = document.createElement("input")
-    list.appendChild(listText)
-    list.setAttribute("class", "TodoItem")
-    listBullet.setAttribute("type", "radio")
-    listItemdiv.appendChild(listBullet);
-    listItemdiv.appendChild(list)
-    editImg = document.createElement("img")
-    editImg.setAttribute("src", "./icons/edit.png")
-    DeleteImg = document.createElement("img")
-    DeleteImg.setAttribute("src", "./icons/delete.png")
-    listItemdiv.appendChild(editImg)
-    listItemdiv.appendChild(DeleteImg)
-    id = Input.value
-    id = id.replace(/\s+/g, '');
-    list.setAttribute("for", id)
-    listBullet.setAttribute("id", id)
-    editImg.addEventListener("click", function () {
-        // var inputedit = createElement
-        var editig = prompt("Edit", listText.textContent);
-        list.innerHTML = editig
-    })
-    // editImg.setAttribute("onclick", "editItem()");
-    DeleteImg.addEventListener("click", function () {
-        this.parentNode.remove();
-    })
-    // DeleteImg.setAttribute("onclick","Imgdel()")
+// else {
+    function Addtodo() {
+        if (Input.value === "") {
+            var error = document.createElement("p")
+            ptext = document.createTextNode("Please Input Value")
+            error.appendChild(ptext)
+            main.appendChild(error)
+            error.style.color= "red"
+            setTimeout(
+                function () {
+                    error.style = "display:none"
+                },2000
+            );
+        } else {
+        // console.log(Todos);
+        // Todos.push(Input.value);
+        var listItemdiv = document.createElement("div")
+        TdlistDiv.appendChild(listItemdiv)
+        listItemdiv.setAttribute("class", "TodoListMain")
+        var list = document.createElement("label");
+        listText = document.createTextNode(Input.value)
+        listBullet = document.createElement("input")
+        list.appendChild(listText)
+        list.setAttribute("class", "TodoItem")
+        listBullet.setAttribute("type", "radio")
+        listItemdiv.appendChild(listBullet);
+        listItemdiv.appendChild(list)
+        editImg = document.createElement("img")
+        editImg.setAttribute("src", "./icons/edit.png")
+        DeleteImg = document.createElement("img")
+        DeleteImg.setAttribute("src", "./icons/delete.png")
+        listItemdiv.appendChild(editImg)
+        listItemdiv.appendChild(DeleteImg)
+        id = Input.value
+        id = id.replace(/\s+/g, '');
+        list.setAttribute("for", id)
+        listBullet.setAttribute("id", id)
+        editImg.addEventListener("click", function () {
+            // var inputedit = createElement
+            var editig = prompt("Edit", listText.textContent);
+            list.innerHTML = editig
+        })
+        // editImg.setAttribute("onclick", "editItem()");
+        DeleteImg.addEventListener("click", function () {
+            this.parentNode.remove();
+        })
+        // DeleteImg.setAttribute("onclick","Imgdel()")
+        Input.value="";
+    }
 }
 Input.addEventListener("keypress", function (event) {
     if (event.key === "Enter") {
-    // event.preventDefault();
-    Addtodo();
-} 
+        // event.preventDefault();
+        Addtodo();
+    }
 })
 // console.log[Todos]
 // function editItem() {
