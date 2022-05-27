@@ -68,14 +68,17 @@ TdlistDiv.setAttribute("class", "TodolistDiv")
         listBullet.setAttribute("id", id)
         editImg.addEventListener("click", function () {
             // var inputedit = createElement
-            var editig = prompt("Edit", listText.textContent);
+            // var editInput = document.createElement("input");
+            // editInput.setAttribute("type", "text");
+            // this.parentNode.replaceChild(list, editInput);
+            
+            var editig = prompt("Edit", list.textContent);
             list.innerHTML = editig
         })
         // editImg.setAttribute("onclick", "editItem()");
         DeleteImg.addEventListener("click", function () {
             this.parentNode.remove();
         })
-        // DeleteImg.setAttribute("onclick","Imgdel()")
         Input.value="";
     }
 }
